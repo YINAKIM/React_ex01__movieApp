@@ -1,25 +1,8 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return(<div className='App'/>);
+  // return 이랑 같은 라인에 써야 return을 인식한다. ----> ERROR:return null
+  // 여러줄 리턴하려면? return( ); 이렇게 하고 ()안에 쓰면 여러줄 리턴해도 에러 안남
 }
-
 export default App;
