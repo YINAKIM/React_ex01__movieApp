@@ -26,6 +26,25 @@ function renderFood(dish) {
 }
 
 function App() {
+    console.log(foodLike.map(renderFood));
+    /*******************************************************************************************************************************
+     (4) [{…}, {…}, {…}, {…}]
+    여기서 0번째 요소만 예를 들어 살펴보면
+    ---> react.element고 props에 내가 정의해둔 데이터가 전달된 것이 보인다.
+    ---> type은 Food컴포넌트타입
+
+    0:
+    $$typeof: Symbol(react.element)
+    key: null
+    props: {name: "salad", picture: "https://images.unsplash.com/photo-1512621776951-a5…8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"}
+    ref: null
+    type: ƒ Food({ name, picture })
+    _owner: FiberNode {tag: 0, key: null, stateNode: null, elementType: ƒ, type: ƒ, …}
+    _store: {validated: false}
+    _self: undefined
+    _source: {fileName: "/Users/kim-yina/Desktop/yinaLab/React_ex/react_ex01_movie/src/App.js", lineNumber: 25, columnNumber: 12}
+    [[Prototype]]: Object
+    *********************************************************************************************************************************/
     return(
         <div>
             <h2> map() 에 인자로 Food컴포넌트에 props를 받아 컴포넌트를 반환하는 renderFood()를 받아 실행시킨다</h2>
