@@ -12,7 +12,7 @@ function Food({name, picture}) {
 }
 
 
-// 각 요소에 유일한 key값 넣어주기
+// 각 요소에 유일한 key값 넣어주기 : map()로 렌더링 될 때 반환되는 컴포넌트들 각각을 react가 식별하기 위해 key값이 필요
 const foodLike = [
     {id:1, name:'salad', image:'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'}
     ,{id:2, name:'toast', image:'https://images.unsplash.com/photo-1484723091739-30a097e8f929?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80'}
@@ -21,29 +21,11 @@ const foodLike = [
 ];
 
 function App() {
-    // key값추가된거 확인해보기
-    console.log(foodLike.map(dish=>(
-            <Food key={dish.id} name={dish.name} picture={dish.image} />
-        )
-    ));
-    /*****************************************************
-     * 이 전에 id가 없었을 때는 key:null이라서
-     * Warning: Each child in a list should have a unique "key" prop.
-     * 이런에러메세지가 떴음
-     *
-     (4) [{…}, {…}, {…}, {…}]
-     0: {$$typeof: Symbol(react.element), key: "1", ref: null, props: {…}, type: ƒ, …}
-     1: {$$typeof: Symbol(react.element), key: "2", ref: null, props: {…}, type: ƒ, …}
-     2: {$$typeof: Symbol(react.element), key: "3", ref: null, props: {…}, type: ƒ, …}
-     3: {$$typeof: Symbol(react.element), key: "4", ref: null, props: {…}, type: ƒ, …}
-
-     이제 각 요소별로 유일한 key값이 있어서 에러메세지 안뜬다. 
-     ***************************************************/
     return(
         <div>
             <h1> map() 사용하여 비슷한 컴포넌트 여러개 만들기</h1>
           <hr/>
-            {/* map() 에 renderFood를 인자로 받아 실행시킨다.*/}
+            {/* map()로 렌더링 될 때 반환되는 컴포넌트들 각각을 react가 식별하기 위해 key값이 필요한 것이다.*/}
             {foodLike.map(dish=>(
                 <Food key={dish.id} name={dish.name} picture={dish.image} />
                 )
