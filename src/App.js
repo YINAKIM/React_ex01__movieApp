@@ -4,7 +4,7 @@ function Food({name, picture}) {
     return(
         <div>
             <h4>이름 : {name}</h4>
-            <img src ={picture} alt={name} width="200px"/>
+            <img src ={picture} alt={name} width="300px"/>
             <br/>
             <br/>
         </div>
@@ -19,20 +19,18 @@ const foodLike = [
     ,{name:'icecream', image:'https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fGZvb2R8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',}
     ,{name:'fruits', image:'https://images.unsplash.com/photo-1511688878353-3a2f5be94cd7?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzB8fGZvb2R8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',}
 ];
-// 각 {}의 마지막요소 뒤에 ,가 있던 없던 OK
 
-
-
+// foodLike.map에 인자로 전달될 함수 : 음식요소를 렌더링하는 컴포넌트를 반환한다.
+function renderFood(dish) {
+    return <Food name={dish.name} picture={dish.image}/>;
+}
 
 function App() {
     return(
         <div>
-            <h1> map() 사용하여 비슷한 컴포넌트 여러개 만들기</h1>
+            <h2> map() 에 인자로 Food컴포넌트에 props를 받아 컴포넌트를 반환하는 renderFood()를 받아 실행시킨다</h2>
           <hr/>
-            {/* map() 사용하여 요소마다 컴포넌트를 반환하도록*/}
-            {foodLike.map(dish => (
-                <Food name={dish.name} picture={dish.image}/>
-            ))}
+            {foodLike.map(renderFood)}
       </div>
   );
 }
