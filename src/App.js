@@ -1,6 +1,10 @@
 import React from 'react';
 
-function App() {
-  return <h2>Hello! 여기에 들어간다</h2>;
+function app() {
+  return(
+      <div>
+        <h1> App() 컴포넌트! </h1>
+      </div>
+  );
 }
-export default App;
+export default app;
